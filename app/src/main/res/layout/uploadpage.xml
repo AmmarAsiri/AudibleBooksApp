@@ -17,6 +17,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/navigation_menu"
         tools:layout_editor_absoluteX="0dp" />
+    <View
+        android:id="@+id/viewDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/buttonColor"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeader"

@@ -16,4 +16,14 @@
     <string name="upload">Upload</string>
     <string name="search_books">Search Books</string>
     <string name="search_books1">Search Books...</string>
+    <string name="browse">Browse</string>
+    <string name="upload2">Upload</string>
+    <string name="choose_a_file_to_upload">Choose a file to upload</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="joey_sharenofood_com">joey@sharenofood.com</string>
+    <string name="_1_202_555_0157">+1-202-555-0157</string>
+    <string name="joey_tribbiani">Joey Tribbiani</string>
+    <string name="new_york_usa">new york, usa</string>
+    <string name="todo">TODO</string>
 </resources>

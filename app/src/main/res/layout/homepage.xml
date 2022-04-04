@@ -70,6 +70,7 @@
                 android:textSize="16sp" />
 
             <ImageView
+                android:id="@+id/searchBooks"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@drawable/search_icon_background"

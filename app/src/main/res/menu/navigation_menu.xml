@@ -5,10 +5,6 @@
         android:icon="@drawable/ic_home"
         android:title="@string/home"/>
 
-    <item android:id="@+id/menuFav"
-        android:icon="@drawable/ic_favorite"
-        android:title="@string/favorite"/>
-
     <item android:id="@+id/menuUpload"
         android:icon="@drawable/ic_attach_file"
         android:title="@string/upload"/>

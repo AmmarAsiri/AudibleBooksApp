@@ -17,12 +17,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/navigation_menu"
         tools:layout_editor_absoluteX="0dp" />
+
     <View
         android:id="@+id/viewDivider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/buttonColor"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"/>
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeader"
@@ -32,6 +33,7 @@
         android:padding="10dp"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <TextView
             android:id="@+id/txtAppName"
             android:layout_width="wrap_content"
@@ -39,7 +41,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:text="@string/app_name"
-            android:textColor="#616161"
+            android:textColor="@color/primaryDark"
             android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -53,6 +55,7 @@
             android:layout_marginEnd="60dp"
             android:text="@string/choose_a_file_to_upload"
             android:textAlignment="center"
+            android:textColor="@color/primaryDark"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.555"
@@ -76,9 +79,21 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:alpha="0.2"
+        android:src="@drawable/headphone"
+        app:layout_constraintBottom_toTopOf="@+id/viewDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
+        app:layout_constraintVertical_bias="0.29" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/browse"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginStart="164dp"
@@ -92,7 +107,7 @@
         app:layout_constraintTop_toBottomOf="@+id/layoutHeader" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/upload"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="106dp"
@@ -104,6 +119,6 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/browse" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

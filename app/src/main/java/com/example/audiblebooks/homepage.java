@@ -3,8 +3,11 @@ package com.example.audiblebooks;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.view.Menu;
@@ -14,51 +17,43 @@ import android.widget.ImageView;
 import android.widget.QuickContactBadge;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class homepage extends AppCompatActivity {
 
+
     private ImageView searchBooks;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
 
-        searchBooks = findViewById(R.id.searchBooks);
+        fAuth = FirebaseAuth.getInstance();
 
-        searchBooks.setOnClickListener(new View.OnClickListener(){
+        ImageView s = findViewById(R.id.searchBooks);
+        View dev = findViewById(R.id.layoutGoal);
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+
+        s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_main);
+                startActivity(new Intent(homepage.this,MainActivity.class));
             }
         });
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottomNavigation);
-        bottomNav.setOnNavigationItemSelectedListener(navListner);
+        dev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(homepage.this,bookpage.class));
+            }
+        });
     }
-
-    private BottomNavigationView.OnNavigationItemSelectedListener navListner =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                    switch (item.getItemId()){
-                        case (R.id.menuHome):
-                            setContentView(R.layout.homepage);
-                            break;
-                        case (R.id.menuUpload):
-                            setContentView(R.layout.uploadpage);
-                            break;
-                        case (R.id.menuAcc):
-                            setContentView(R.layout.accountpage);
-                            break;
-                        case (R.id.menuSettings):
-                            setContentView(R.layout.settingspage);
-                            break;
-                    }
-                    return true;
-                }
-            };
-
 }
 

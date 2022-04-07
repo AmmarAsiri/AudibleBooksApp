@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "45723487956",
+    "project_id": "audible-books-app",
+    "storage_bucket": "audible-books-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45723487956:android:86708b9d5e3ea6ff783541",
+        "android_client_info": {
+          "package_name": "com.example.audiblebooks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45723487956-enh2utrb05osh1of2uuccjs8p2c2s0ln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAjoSZU14xZrNafLeib6cvaL2aw3hgK6E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45723487956-enh2utrb05osh1of2uuccjs8p2c2s0ln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

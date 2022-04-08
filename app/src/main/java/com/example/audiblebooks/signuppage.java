@@ -51,6 +51,7 @@ public class signuppage extends AppCompatActivity {
     }
 
     private void createUser(){
+        String user = username.getText().toString();
         String Email = email.getText().toString();
         String Pass = password.getText().toString();
 
@@ -60,6 +61,9 @@ public class signuppage extends AppCompatActivity {
         } else if (TextUtils.isEmpty(Pass)) {
             password.setError("Password cannot be empty");
             password.requestFocus();
+        } else if (TextUtils.isEmpty(Pass)) {
+            username.setError("Username cannot be empty");
+            username.requestFocus();
         } else {
             fAuth.createUserWithEmailAndPassword(Email,Pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override

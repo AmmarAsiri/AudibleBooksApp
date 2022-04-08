@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/primaryLight"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homepage">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeader"
@@ -109,7 +108,7 @@
                 app:layout_constraintStart_toEndOf="@+id/layoutGoal"
                 app:layout_constraintTop_toBottomOf="@+id/layoutGoal"
                 app:layout_constraintVertical_bias="0.0"
-                android:contentDescription="@string/todo" />
+                android:contentDescription="TODO" />
 
             <LinearLayout
                 android:id="@+id/layoutGoal"
@@ -256,6 +255,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layoutScience" />
 
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragmentContainerView"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="284dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="140dp"
+                android:layout_marginEnd="140dp"
+                android:layout_marginBottom="140dp"
+                app:defaultNavHost="true"
+                app:layout_constraintBottom_toTopOf="@+id/logo"
+                app:layout_constraintEnd_toStartOf="@+id/logo"
+                app:layout_constraintStart_toEndOf="@+id/logo"
+                app:layout_constraintTop_toBottomOf="@+id/logo"
+                app:navGraph="@navigation/bottom_nav"/>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -268,7 +284,7 @@
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/navigation_menu"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp"/>
 
     <View
         android:id="@+id/viewDivider"
@@ -276,6 +292,5 @@
         android:layout_height="1dp"
         android:background="@color/buttonColor"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

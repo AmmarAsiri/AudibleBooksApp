@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/menuHome"
+    <item android:id="@+id/homepage"
         android:icon="@drawable/ic_home"
         android:title="@string/home"/>
 
-    <item android:id="@+id/menuUpload"
+    <item android:id="@+id/uploadpage"
         android:icon="@drawable/ic_attach_file"
         android:title="@string/upload"/>
 
-    <item android:id="@+id/menuAcc"
+    <item android:id="@+id/accountpage"
         android:icon="@drawable/ic_account_circle"
         android:title="@string/account"/>
 
-    <item android:id="@+id/menuSettings"
+    <item android:id="@+id/settingspage"
         android:icon="@drawable/ic_settings"
         android:title="@string/settings"/>
 </menu>

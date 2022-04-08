@@ -1,4 +1,6 @@
 package com.example.audiblebooks;
 
-public class settingspage {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class settingspage extends AppCompatActivity {
 }

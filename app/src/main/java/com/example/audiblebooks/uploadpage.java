@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 
-public class uploadpage extends Fragment {
+public class uploadpage extends AppCompatActivity {
 
 }
 

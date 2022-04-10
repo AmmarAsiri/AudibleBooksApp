@@ -39,11 +39,8 @@ public class homepage extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
 
-        ImageView s = findViewById(R.id.searchBooks);
-        View dev = findViewById(R.id.layoutGoal);
-
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
+        ImageView search = findViewById(R.id.searchBooks);
+        View development = findViewById(R.id.layoutGoal);
 
         BottomNavigationView bnv = findViewById(R.id.bottomNavigation);
 
@@ -72,17 +69,17 @@ public class homepage extends AppCompatActivity {
             }
         });
 
-        s.setOnClickListener(new View.OnClickListener() {
+        search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(homepage.this,MainActivity.class));
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
 
-        dev.setOnClickListener(new View.OnClickListener() {
+        development.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(homepage.this,bookpage.class));
+                startActivity(new Intent(getApplicationContext(),bookpage.class));
             }
         });
 

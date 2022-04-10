@@ -23,24 +23,10 @@
             android:layout_marginTop="15dp"
             android:text="@string/app_name"
             android:textColor="@color/primaryDark"
-            android:textSize="25sp"
+            android:textSize="35sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageMenu"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="172dp"
-            android:layout_marginEnd="15dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_menu"
-            app:layout_constraintBottom_toBottomOf="@+id/txtAppName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txtAppName"
-            app:layout_constraintTop_toTopOf="@+id/txtAppName"
-            app:tint="@color/white"
-            tools:ignore="ImageContrastCheck" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,8 +37,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/white_rectangle_background"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageMenu">
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <EditText
                 android:layout_width="0dp"
@@ -83,6 +68,19 @@
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:alpha="0.2"
+        android:src="@drawable/headphone"
+        app:layout_constraintBottom_toTopOf="@+id/viewDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
+        app:layout_constraintVertical_bias="0.29" />
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -96,20 +94,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:alpha="0.2"
-                android:src="@drawable/headphone"
-                app:layout_constraintBottom_toTopOf="@+id/layoutStory"
-                app:layout_constraintEnd_toStartOf="@+id/layoutClassic"
-                app:layout_constraintHorizontal_bias="0.503"
-                app:layout_constraintStart_toEndOf="@+id/layoutGoal"
-                app:layout_constraintTop_toBottomOf="@+id/layoutGoal"
-                app:layout_constraintVertical_bias="0.0"
-                android:contentDescription="@string/todo" />
 
             <LinearLayout
                 android:id="@+id/layoutGoal"
@@ -264,6 +248,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backgroundTint="@color/buttonColor"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
         app:itemIconSize="30dp"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"

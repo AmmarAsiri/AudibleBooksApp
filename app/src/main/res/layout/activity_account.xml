@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryLight"
-    tools:context=".accountpage">
-
+    tools:context=".Account">
 
     <RelativeLayout
         android:id="@+id/rellay1"
@@ -166,5 +165,4 @@
         android:layout_height="1dp"
         android:background="@color/buttonColor"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

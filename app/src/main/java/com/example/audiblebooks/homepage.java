@@ -30,7 +30,6 @@ public class homepage extends AppCompatActivity {
 
 
     private ImageView searchBooks;
-
     FirebaseAuth fAuth;
 
     @Override
@@ -43,13 +42,35 @@ public class homepage extends AppCompatActivity {
         ImageView s = findViewById(R.id.searchBooks);
         View dev = findViewById(R.id.layoutGoal);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        /*NavController navController = Navigation.findNavController(this,  R.id.fragmentContainerView);
-        NavigationUI.setupWithNavController(bottomNavigationView, navController);*/
-
-
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
+
+        BottomNavigationView bnv = findViewById(R.id.bottomNavigation);
+
+        bnv.setSelectedItemId(R.id.itemHome);
+
+        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.itemUpload:
+                        startActivity(new Intent(getApplicationContext(),Upload.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.itemHome:
+                        return true;
+                    case R.id.itemAcc:
+                        startActivity(new Intent(getApplicationContext(),Account.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.itemSettings:
+                        startActivity(new Intent(getApplicationContext(),Settings.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
+        });
 
         s.setOnClickListener(new View.OnClickListener() {
             @Override

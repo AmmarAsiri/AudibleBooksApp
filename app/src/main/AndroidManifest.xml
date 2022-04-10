@@ -10,11 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AudibleBooks">
         <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity
+            android:name=".Account"
+            android:exported="false" />
+        <activity
+            android:name=".Upload"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
-        <activity android:name=".homepage"
+            android:exported="true" />
+        <activity
+            android:name=".homepage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +30,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".bookpage"/>
-        <activity android:name=".signuppage"></activity>
-
+        <activity android:name=".bookpage" />
+        <activity android:name=".signuppage" />
     </application>
 
 </manifest>

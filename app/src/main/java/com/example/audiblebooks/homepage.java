@@ -30,6 +30,9 @@ public class homepage extends AppCompatActivity {
 
 
     private ImageView searchBooks;
+    private ImageView search;
+    private View classic;
+    private View development;
     FirebaseAuth fAuth;
 
     @Override
@@ -39,8 +42,9 @@ public class homepage extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
 
-        ImageView search = findViewById(R.id.searchBooks);
-        View development = findViewById(R.id.layoutGoal);
+        search = findViewById(R.id.searchBooks);
+        development = findViewById(R.id.layoutGoal);
+        classic = findViewById(R.id.layoutClassic);
 
         BottomNavigationView bnv = findViewById(R.id.bottomNavigation);
 
@@ -80,6 +84,13 @@ public class homepage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),bookpage.class));
+            }
+        });
+
+        classic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ClassicBook.class));
             }
         });
 

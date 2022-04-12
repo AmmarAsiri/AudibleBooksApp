@@ -7,15 +7,14 @@
     android:background="@color/primaryLight"
     tools:context=".Upload">
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backgroundTint="@color/buttonColor"
+        app:itemIconSize="30dp"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
-        app:itemIconSize="30dp"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/navigation_menu"
@@ -85,10 +84,10 @@
 
     <Button
         android:id="@+id/browse"
-        android:layout_width="200dp"
+        android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="164dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="164dp"
         android:backgroundTint="@color/buttonColor"
         android:text="@string/browse"
@@ -98,18 +97,54 @@
         app:layout_constraintTop_toBottomOf="@+id/layoutHeader" />
 
     <Button
-        android:id="@+id/upload"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="106dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="106dp"
-        android:layout_marginBottom="224dp"
+        android:id="@+id/play"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="@color/buttonColor"
-        android:text="@string/upload"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        android:text="@string/play"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeader" />
+
+    <Button
+        android:id="@+id/pause"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/buttonColor"
+        android:text="Pause"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeader" />
+
+    <EditText
+        android:id="@+id/pdfName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/white_rectangle_background"
+        android:gravity="start"
+        android:hint="Enter the file name..."
+        android:minHeight="40dp"
+        android:padding="5dp"
+        android:textColor="@color/colorText"
         app:layout_constraintTop_toBottomOf="@+id/browse" />
 
+    <TextView
+        android:id="@+id/fileContent"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:scrollbars="vertical"
+        android:background="@drawable/white_rectangle_background"
+        android:textColor="@color/colorText"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="@+id/logo"
+        app:layout_constraintStart_toStartOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/pdfName"
+        app:layout_constraintVertical_bias="0.061" />
 </androidx.constraintlayout.widget.ConstraintLayout>

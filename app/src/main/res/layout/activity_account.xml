@@ -37,7 +37,7 @@
                 android:contentDescription="@string/todo"
                 android:padding="3dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_user"
+                android:src="@drawable/ic_account_circle"
                 tools:ignore="ImageContrastCheck" />
 
         </RelativeLayout>
@@ -50,7 +50,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15sp"
             android:fontFamily="sans-serif-light"
-            android:text="@string/joey_tribbiani"
+            android:text="USER_NAME"
             android:textColor="@color/white"
             android:textSize="32sp" />
 
@@ -103,7 +103,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="@string/joey_sharenofood_com"
+                    android:text="EXAMPLE@EXAMPLE.COM"
                     android:textColor="@color/primaryDark"
                     android:textSize="18sp" />
 
@@ -132,7 +132,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="@string/user_name"
+                    android:text="USER_NAME"
                     android:textColor="@color/primaryDark"
                     android:textSize="18sp" />
 

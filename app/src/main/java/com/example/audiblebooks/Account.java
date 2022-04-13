@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,11 +28,11 @@ public class Account extends AppCompatActivity {
     private TextView usernameView;
     private TextView tvName;
     private ImageView pfpic;
-    private FirebaseDatabase database;
-    private DatabaseReference reference;
     private static final String USERS = "users";
 
     private FirebaseUser firebaseUser;
+    private DatabaseReference reference;
+    private String userID;
     String email;
 
     @Override
@@ -48,24 +49,28 @@ public class Account extends AppCompatActivity {
         tvName = findViewById(R.id.tv_name);
         pfpic = findViewById(R.id.pfp);
 
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference(USERS);
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference(USERS);
+        userID = firebaseUser.getUid();
 
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("email").getValue().equals(email)) {
-                        emailView.setText(email);
-                        usernameView.setText(ds.child("name").getValue(String.class));
-                        tvName.setText(ds.child("name").getValue(String.class));
-                    }
+                Users userAcc = snapshot.getValue(Users.class);
+
+                if (userAcc != null) {
+                    String Name = userAcc.getName();
+                    String Email = userAcc.getEmail();
+
+                    tvName.setText(Name);
+                    usernameView.setText(Name);
+                    emailView.setText(Email);
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(Account.this, "Something wrong happened!!", Toast.LENGTH_SHORT).show();
             }
         });
 

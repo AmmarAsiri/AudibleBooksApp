@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText pass;
     private Button login;
     private TextView signup;
+    private TextView passReset;
 
     FirebaseAuth fAuth;
     @Override
@@ -34,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         signup = findViewById(R.id.signuptxt);
-        email = findViewById(R.id.username);
+        passReset = findViewById(R.id.forgotpass);
+        email = findViewById(R.id.email);
         pass = findViewById(R.id.password);
         login = findViewById(R.id.loginbtn);
 
@@ -49,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
 
         login.setOnClickListener(view -> {
             loginMethod();
+        });
+
+        passReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
         });
 
         }

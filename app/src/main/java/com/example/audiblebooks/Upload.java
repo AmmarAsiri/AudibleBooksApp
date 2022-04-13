@@ -142,7 +142,7 @@ public class Upload extends AppCompatActivity {
     }
 
 
-   private void callChooseFileFromDevice() {
+    private void callChooseFileFromDevice() {
         Intent intent = new Intent();
         intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -154,10 +154,10 @@ public class Upload extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, resultData);
         if (requestCode == 1 && resultCode == Activity.RESULT_OK && resultData != null && resultData.getData() != null) {
 
-                UploadFiles(resultData.getData());
+            UploadFiles(resultData.getData());
 
-            }
         }
+    }
 
 
     private void UploadFiles(Uri data) {

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryLight"
-    tools:context=".ClassicBook">
+    tools:context=".StoryBook">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeader"
@@ -47,7 +47,7 @@
         android:id="@+id/txtView"
         android:layout_width="350dp"
         android:layout_height="400dp"
-        android:text="Classic Book"
+        android:text="Story Book"
         android:textColor="@color/black"
         android:textSize="40px"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -3,8 +3,8 @@
     package="com.example.audiblebooks">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AudibleBooks">
+        <activity
+            android:name=".DevBook"
+            android:exported="false" />
+        <activity
+            android:name=".ScienceBook"
+            android:exported="false" />
+        <activity
+            android:name=".StoryBook"
+            android:exported="false" />
         <activity
             android:name=".ClassicBook"
             android:exported="false" />

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,12 +18,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText user;
-    EditText pass;
-    Button login;
+    private EditText email;
+    private EditText pass;
+    private Button login;
+    private TextView signup;
 
     FirebaseAuth fAuth;
     @Override
@@ -30,14 +33,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView btn = findViewById(R.id.signuptxt);
-        user = findViewById(R.id.username);
+        signup = findViewById(R.id.signuptxt);
+        email = findViewById(R.id.username);
         pass = findViewById(R.id.password);
         login = findViewById(R.id.loginbtn);
 
         fAuth = FirebaseAuth.getInstance();
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this,signuppage.class));
@@ -51,24 +54,37 @@ public class MainActivity extends AppCompatActivity {
         }
 
         private void loginMethod() {
-            String Email = user.getText().toString();
+            String Email = email.getText().toString();
             String Pass = pass.getText().toString();
 
             if (TextUtils.isEmpty(Email)) {
-                user.setError("Email cannot be empty");
-                user.requestFocus();
+                email.setError("Email cannot be empty");
+                email.requestFocus();
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
+                email.setError("Please Enter Valid Email!!");
+                email.requestFocus();
             } else if (TextUtils.isEmpty(Pass)) {
                 pass.setError("Password cannot be empty");
+                pass.requestFocus();
+            } else if (Pass.length() < 6) {
+                pass.setError("Min password length should be 6 characters!!");
                 pass.requestFocus();
             } else {
                 fAuth.signInWithEmailAndPassword(Email,Pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "logged in successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(MainActivity.this,homepage.class));
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                            if (user.isEmailVerified()) {
+                                Toast.makeText(MainActivity.this, "logged in successfully", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(MainActivity.this,homepage.class));
+                            } else {
+                                user.sendEmailVerification();
+                                Toast.makeText(MainActivity.this, "Check your Email to verify your account!!", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
-                            Toast.makeText(MainActivity.this, "login FAILED!!!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "login FAILED!! Check Email and Password!!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

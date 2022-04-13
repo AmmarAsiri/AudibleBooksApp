@@ -24,14 +24,14 @@
             android:layout_marginTop="16dp"
             android:text="@string/app_name"
             android:textColor="@color/primaryDark"
-            android:textSize="35sp"
+            android:textSize="100px"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="300dp"
+            android:id="@+id/settingtxt"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="75dp"
@@ -44,21 +44,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageMenu"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="172dp"
-            android:layout_marginEnd="15dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_menu"
-            app:layout_constraintBottom_toBottomOf="@+id/txtAppName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txtAppName"
-            app:layout_constraintTop_toTopOf="@+id/txtAppName"
-            app:tint="@color/white"
-            tools:ignore="ImageContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -79,14 +64,14 @@
         android:id="@+id/logo"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="35dp"
         android:alpha="0.2"
         android:src="@drawable/headphone"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/viewDivider"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutHeader" />
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
+        app:layout_constraintVertical_bias="0.29" />
 
     <View
         android:id="@+id/viewDivider"
@@ -96,27 +81,23 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"/>
 
     <Button
-        android:id="@+id/button3"
-
+        android:id="@+id/signoutbtn"
         android:layout_width="300dp"
-
         android:layout_height="50dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="400dp"
         android:layout_marginEnd="59dp"
         android:layout_marginBottom="33dp"
-        android:background="@android:color/holo_red_dark"
+        android:background="@color/buttonColor"
         android:text="@string/sign_out"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/viewDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintBottom_toTopOf="@+id/appInfo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/appInfo"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginStart="52dp"
@@ -124,13 +105,14 @@
         android:layout_marginEnd="59dp"
         android:layout_marginBottom="1dp"
         android:text="@string/information_about_the_app"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/viewDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="29dp"
@@ -138,10 +120,11 @@
         android:layout_marginEnd="256dp"
         android:layout_marginBottom="127dp"
         android:text="@string/notifications"
+        android:textColor="@color/black"
         android:thumbTint="@color/buttonColor"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader"
+        app:layout_constraintBottom_toTopOf="@id/logo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,7 @@ import android.widget.Switch;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,6 +34,8 @@ public class homepage extends AppCompatActivity {
     private ImageView search;
     private View classic;
     private View development;
+    private View story;
+    private View science;
     FirebaseAuth fAuth;
 
     @Override
@@ -45,6 +48,8 @@ public class homepage extends AppCompatActivity {
         search = findViewById(R.id.searchBooks);
         development = findViewById(R.id.layoutGoal);
         classic = findViewById(R.id.layoutClassic);
+        story = findViewById(R.id.layoutStory);
+        science = findViewById(R.id.layoutScience);
 
         BottomNavigationView bnv = findViewById(R.id.bottomNavigation);
 
@@ -83,7 +88,7 @@ public class homepage extends AppCompatActivity {
         development.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),bookpage.class));
+                startActivity(new Intent(getApplicationContext(),DevBook.class));
             }
         });
 
@@ -94,6 +99,28 @@ public class homepage extends AppCompatActivity {
             }
         });
 
+        story.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), StoryBook.class));
+            }
+        });
+
+        science.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ScienceBook.class));
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = fAuth.getCurrentUser();
+        if (user == null) {
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        }
     }
 }
 

@@ -12,27 +12,18 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.parser.PdfTextExtractor;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.Locale;
 
-public class ClassicBook extends AppCompatActivity {
+public class StoryBook extends AppCompatActivity {
 
     private TextToSpeech tts;
     private Button read;
     private TextView con;
-    FirebaseStorage storage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_classic_book);
+        setContentView(R.layout.activity_story_book);
 
         read = findViewById(R.id.readbtn);
         con = findViewById(R.id.txtView);
@@ -43,13 +34,13 @@ public class ClassicBook extends AppCompatActivity {
                 if (i != TextToSpeech.ERROR) {
                     tts.setLanguage(Locale.US);
                 } else {
-                    Toast.makeText(ClassicBook.this, "ERROR", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StoryBook.this, "ERROR", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
+                Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
         read.setOnClickListener(new View.OnClickListener() {
             @Override

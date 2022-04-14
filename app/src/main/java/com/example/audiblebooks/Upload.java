@@ -118,7 +118,7 @@ public class Upload extends AppCompatActivity {
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String toSpeak = content.getText().toString().trim();
+                String toSpeak = pdfName.getText().toString().trim();
                 if (toString().equals("")) {
                     Toast.makeText(Upload.this, "NO Text...!!!", Toast.LENGTH_SHORT).show();
                 } else {

@@ -49,13 +49,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/readbtn"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_alignBottom="@+id/viewDivider"
+        android:layout_marginTop="10dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text1"
         android:visibility="invisible"
         />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:backgroundTint="@color/buttonColor"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/navigation_menu"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <View
+        android:id="@+id/viewDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/buttonColor"
+        android:layout_alignTop="@+id/bottomNavigation"/>
 </RelativeLayout>

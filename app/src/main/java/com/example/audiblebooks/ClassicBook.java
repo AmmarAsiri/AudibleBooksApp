@@ -5,16 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -78,6 +81,35 @@ public class ClassicBook extends AppCompatActivity {
                         Toast.makeText(ClassicBook.this, "Failed to load", Toast.LENGTH_SHORT).show();
                     }
                 });
+            }
+        });
+
+        BottomNavigationView bnv = findViewById(R.id.bottomNavigation);
+
+        bnv.setSelectedItemId(R.id.itemHome);
+
+        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.itemUpload:
+                        startActivity(new Intent(getApplicationContext(),Upload.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.itemHome:
+                        startActivity(new Intent(getApplicationContext(),homepage.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.itemAcc:
+                        startActivity(new Intent(getApplicationContext(),Account.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.itemSettings:
+                        startActivity(new Intent(getApplicationContext(),Settings.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
             }
         });
     }

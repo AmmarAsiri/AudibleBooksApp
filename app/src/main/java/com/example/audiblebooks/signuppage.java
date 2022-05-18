@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -90,8 +91,15 @@ public class signuppage extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(signuppage.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(signuppage.this,MainActivity.class));
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                                    if (user.isEmailVerified()) {
+                                        Toast.makeText(signuppage.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(signuppage.this, MainActivity.class));
+                                    } else {
+                                        user.sendEmailVerification();
+                                        Toast.makeText(signuppage.this, "Check your Email to verify your account!!", Toast.LENGTH_SHORT).show();
+                                    }
                                 } else {
                                     Toast.makeText(signuppage.this, "Register Failed!! Try Again..", Toast.LENGTH_SHORT).show();
                                 }

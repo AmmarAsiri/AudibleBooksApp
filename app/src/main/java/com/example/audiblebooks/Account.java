@@ -33,16 +33,11 @@ public class Account extends AppCompatActivity {
     private FirebaseUser firebaseUser;
     private DatabaseReference reference;
     private String userID;
-    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
-
-        Intent intent = getIntent();
-        email = intent.getStringExtra("email");
-        fAuth = FirebaseAuth.getInstance();
 
         emailView = findViewById(R.id.emailtxt);
         usernameView = findViewById(R.id.usertxt);

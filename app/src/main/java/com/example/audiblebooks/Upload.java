@@ -39,9 +39,9 @@ public class Upload extends AppCompatActivity {
 
     private TextToSpeech tts;
 
-    Button browsebtn;
-    Button play;
-    Button pause;
+    private Button browsebtn;
+    private Button play;
+    private Button pause;
     private TextView content;
     private EditText pdfName;
 
@@ -172,7 +172,7 @@ public class Upload extends AppCompatActivity {
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                         Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                        while (!uriTask.isComplete()) ;
+                        while (!uriTask.isComplete());
                         Uri url = uriTask.getResult();
 
                         pdfClass pdfClass = new pdfClass(pdfName.getText().toString(), url.toString());
